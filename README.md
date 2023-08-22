@@ -24,7 +24,7 @@ If you have multiple worker containers/pods, set t/c to the number of backend wo
  wrk -t1 -c1 -d20m -s ./wrk-scripts/compl.lua http://172.168.0.218:8000/v1/completions --timeout 1m
 
 # For testing chat completions
-wrk -t1 -c1 -d20m -s ./wrk-scripts/compl.lua http://172.168.0.218:8000/v1/completions --timeout 1m
+wrk -t1 -c1 -d20m -s ./wrk-scripts/chat.lua http://172.168.0.218:8000/v1/chat/completions --timeout 1m
 
 
 ```
