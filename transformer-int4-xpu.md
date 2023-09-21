@@ -9,11 +9,13 @@ Example for booting the container:
 ```bash
 #/bin/bash
 # You may need to build the image from the Dockerfile first
+# Most desktop only have one numa node, so we do not need to set cpuset-mems
 export DOCKER_IMAGE=10.239.45.10/arda/intelanalytics/bigdl-llm-xpu:2.4.0-SNAPSHOT
 
 sudo docker run -itd \
         --net=host \
         --device=/dev/dri \
+        --cpuset-cpus="0-3" \
         --memory="32G" \
         --name=CONTAINER_NAME \
         --shm-size="16g" \
