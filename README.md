@@ -35,3 +35,12 @@ If you have multiple worker containers/pods, set t/c to the number of backend wo
 wrk -t1 -c1 -d20m -s ./wrk-scripts/chat.lua http://172.168.0.218:8000/v1/chat/completions --timeout 1m
 
 ```
+
+## Random prompt
+To use random prompt, you need to install cjson with `luarocks`.
+```bash
+apt install luarocks
+luarocks install lua-cjson
+
+./wrk -t1 -c1 -d5m -s ./wrk-scripts/compl_random.lua http://localhost:8001/v1/completions -- ~/data.txt
+```
