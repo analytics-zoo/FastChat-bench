@@ -23,6 +23,11 @@ export OMP_NUM_THREADS="YOUR_CORE_NUMBERS"
 
 We use `wrk` for testing end-to-end throughput, check [here](https://github.com/wg/wrk).
 
+You can install by:
+```bash
+sudo apt install wrk
+```
+
 Please change the test url accordingly.
 
 If you have multiple worker containers/pods, set t/c to the number of backend workers to test full throughput.
