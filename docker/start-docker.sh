@@ -28,7 +28,7 @@ sudo docker run -itd \
         -e WORKER_PORT="21840" \
         -e OMP_NUM_THREADS="48" \
         -e ENABLE_PERF_OUTPUT=true \
-        -e MODEL_PATH=/ppml/models/Llama-2-7b-chat-hf-bigdl \  # Please change this model
+        -e MODEL_PATH="/ppml/models/llama-7b-bigdl/" \
         -v $MODEL_PATH:/ppml/models \
         $DOCKER_IMAGE -m worker
 
@@ -46,6 +46,6 @@ sudo docker run -itd \
        -e WORKER_PORT="21841" \
        -e OMP_NUM_THREADS="48" \
        -e ENABLE_PERF_OUTPUT=true \
-       -e MODEL_PATH=/ppml/models/Llama-2-7b-chat-hf \ # Please change this model
+       -e MODEL_PATH="/ppml/models/llama-7b-bigdl/" \
        -v $MODEL_PATH:/ppml/models \
        $DOCKER_IMAGE -m worker
