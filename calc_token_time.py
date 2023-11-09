@@ -8,8 +8,9 @@ rest_token_times = []
 
 with open(log_file, "r") as file:
     for line in file:
-        if line.startswith('{"id":'):
-            try:
+        try:
+            if line.startswith('{"id":'):
+            
                 data = json.loads(line)
                 choices = data.get("choices", [])
                 for choice in choices:
@@ -19,8 +20,9 @@ with open(log_file, "r") as file:
                         first_token_times.append(first_token_time)
                     if rest_token_time is not None:
                         rest_token_times.append(rest_token_time)
-            except json.JSONDecodeError:
-                print(f"Error parsing JSON at line : {line}")
+        except Exception:
+            pass
+                #print(f"Error parsing JSON at line : {line}")
 
 average_first_token_time = np.mean(first_token_times)
 average_rest_token_time = np.mean(rest_token_times)
